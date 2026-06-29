@@ -1,0 +1,89 @@
+{
+  "tx01": {
+    "id": "tx01",
+    "text": "This is Earth Relay Station 4 to Helix-7. We read your distress beacon. Sending extraction coordinates in fragments — reactor interference is breaking up our signal. Transcribe each transmission exactly as received. One error and the nav computer rejects the sequence.",
+    "good": "tx02",
+    "bad": "tx02"
+  },
+  "tx02": {
+    "id": "tx02",
+    "text": "First coordinate fragment: bearing 227 mark 14, declination offset nine point three. The rescue ship Calloway is already en route. They need the full sequence or they jump blind.",
+    "good": "tx03_clear",
+    "bad": "tx03_static"
+  },
+  "tx03_clear": {
+    "id": "tx03_clear",
+    "text": "Fragment two confirmed. Secondary coordinate: adjust for solar drift at 0.7 arc seconds per hour. Helix-7, your reactor core is at 61 percent and falling. You have time. Stay calm and keep transcribing.",
+    "good": "tx04_clear",
+    "bad": "tx04_warning"
+  },
+  "tx03_static": {
+    "id": "tx03_static",
+    "text": "Fragment two — warning, signal degrading — secondary coordinate: adjust for solar drift — corrupted — arc seconds per hour. Helix-7, we are losing you. Reactor reading critical. Do not stop transcribing.",
+    "good": "tx04_warning",
+    "bad": "tx04_critical"
+  },
+  "tx04_clear": {
+    "id": "tx04_clear",
+    "text": "Third fragment locked in. Spatial coordinate complete: final bearing 091 mark 33. Calloway is forty minutes out. Helix-7, you are going to make it home. Two more fragments and the approach is yours.",
+    "good": "tx05_clear",
+    "bad": "tx05_static"
+  },
+  "tx04_warning": {
+    "id": "tx04_warning",
+    "text": "Third fragment — power surge detected — bearing 091 — station is venting atmosphere on deck two — mark 33. Calloway adjusted course. Eighteen minutes, MORSE. Just keep your hands steady. We are not done yet.",
+    "good": "tx05_clear",
+    "bad": "tx05_static"
+  },
+  "tx04_critical": {
+    "id": "tx04_critical",
+    "text": "MORSE we are losing telemetry — fragment three — 091 — systems failing — mark 33 — Helix-7 do you copy — the Calloway cannot wait — keep going — there are two fragments left and no time to lose.",
+    "good": "tx05_static",
+    "bad": "tx05_static"
+  },
+  "tx05_clear": {
+    "id": "tx05_clear",
+    "text": "Fragments four and five: relative velocity two point one klicks per second, approach corridor delta-seven. Calloway has your spatial fix and is burning to match it. MORSE, the hard part is behind you. One transmission left and you are clear.",
+    "good": "tx06_clear",
+    "bad": "tx06_static"
+  },
+  "tx05_static": {
+    "id": "tx05_static",
+    "text": "Fragments four and — interference — relative velocity two point one — corridor delta — seven — we are riding the edge of your signal, MORSE. Reactor wash is climbing. Keep the rhythm. Do not let the static into the numbers. One more.",
+    "good": "tx06_static",
+    "bad": "tx06_critical"
+  },
+  "tx06_clear": {
+    "id": "tx06_clear",
+    "text": "Final fragment: docking transponder seven-seven-alpha, clamp frequency one-one-four-point-two. That is the whole sequence, MORSE. Read it back clean and the Calloway locks straight onto you. Last transmission. Make it count.",
+    "good": "end_good",
+    "bad": "end_neutral"
+  },
+  "tx06_static": {
+    "id": "tx06_static",
+    "text": "Final fragment — transponder seven-seven — alpha — clamp frequency one-one-four — MORSE we are nearly blind on this end. This is the last window the relay can hold open. Send it back. Whatever you have, send it back now.",
+    "good": "end_neutral",
+    "bad": "end_bad"
+  },
+  "tx06_critical": {
+    "id": "tx06_critical",
+    "text": "MORSE — relay is collapsing — transponder seven-seven-alpha — that is all we can give you — no time to repeat it — the Calloway is committing to the pass — type it, type it now, this is the last thing you will hear from us.",
+    "good": "end_neutral",
+    "bad": "end_bad"
+  },
+  "end_good": {
+    "id": "end_good",
+    "text": "Sequence complete. All six fragments locked. Calloway is on final approach, transponder matched, bearing confirmed. MORSE — well done. Open the docking bay and get to the airlock. You brought everyone home.",
+    "ending": "good"
+  },
+  "end_neutral": {
+    "id": "end_neutral",
+    "text": "The Calloway found Helix-7 by its heat signature, not its coordinates. A twenty-minute window, not forty. Enough for four of the six crew to make it through the airlock before the reactor hit redline. The debrief would call it a partial success. You would never use that word for it.",
+    "ending": "neutral"
+  },
+  "end_bad": {
+    "id": "end_bad",
+    "text": "The coordinates the Calloway received were close — close enough that their sensors swept the sector for three full hours before the fuel margin ran out. The log would record: signal corrupted, position unconfirmed. In the silence after the last transmission, you sat at the terminal and listened to static.",
+    "ending": "bad"
+  }
+}
