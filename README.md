@@ -56,11 +56,11 @@ Each transmission is a node in a story graph stored in `src/data/story.json`. Af
 
 This continues for up to 6 transmissions. The accumulated path of choices leads to one of three endings:
 
-| Ending | Badge |
-|---|---|
-| Good | `SIGNAL RECOVERED` — phosphor green badge |
-| Neutral | `PARTIAL RECOVERY` — amber badge |
-| Bad | `SIGNAL LOST` — red badge |
+| Ending  | Badge                                     |
+|---------|-------------------------------------------|
+| Good    | `SIGNAL RECOVERED` — phosphor green badge |
+| Neutral | `PARTIAL RECOVERY` — amber badge          |
+| Bad     | `SIGNAL LOST` — red badge                 |
 
 ### Typing Mechanics
 
@@ -82,16 +82,16 @@ Live stats update on every keystroke:
 
 ## Tech Stack
 
-| Category | Technology | Notes |
-|---|---|---|
-| UI Framework | React 18 | Hooks-only; no class components |
-| Build Tool | Vite 5 | `@vitejs/plugin-react` for JSX transform |
-| Language | JavaScript (JSX) | No TypeScript |
-| Styling | Vanilla CSS | Single file, custom properties, no preprocessor |
-| Audio | Web Audio API | Zero asset files; fully synthesised at runtime |
-| Graphics | WebGL 1 / GLSL ES 1.00 | Raw canvas, no Three.js or similar |
-| Fonts | Google Fonts | `Share Tech Mono` — loaded via `<link>` in `index.html` |
-| Testing | Playwright | Installed as a devDependency |
+| Category       | Technology             | Notes                                                   |
+|----------------|------------------------|---------------------------------------------------------|
+| UI Framework   | React 18               | Hooks-only; no class components                         |
+| Build Tool     | Vite 5                 | `@vitejs/plugin-react` for JSX transform                |
+| Language       | JavaScript (JSX)       | No TypeScript                                           |
+| Styling        | Vanilla CSS            | Single file, custom properties, no preprocessor         |
+| Audio          | Web Audio API          | Zero asset files; fully synthesised at runtime          |
+| Graphics       | WebGL 1 / GLSL ES 1.00 | Raw canvas, no Three.js or similar                      |
+| Fonts          | Google Fonts           | `Share Tech Mono` — loaded via `<link>` in `index.html` |
+| Testing        | Playwright             | Installed as a devDependency                            |
 
 **Runtime dependencies:** `react`, `react-dom` only.
 
@@ -140,16 +140,16 @@ All game logic lives in a single custom hook: `src/hooks/useGameState.js`.
 
 It owns:
 
-| State | Type | Description |
-|---|---|---|
-| `nodeId` | string | Current story node key (e.g. `'tx01'`) |
-| `typed` | string | Everything the player has typed for the current transmission |
-| `phase` | `'intro' \| 'playing' \| 'result'` | High-level screen state |
-| `stats` | `{ wpm, accuracy }` | Live typing metrics, updated on every keystroke |
-| `nodeHistory` | array | One record per completed transmission: `{ nodeId, accuracy, wpm, seconds, streak, chars }` |
-| `transmissionNumber` | number | 1–6, used to drive audio intensity and the tracker UI |
-| `startTime` | ref | Timestamp of the first keystroke; `null` between transmissions |
-| `inputRef` | ref | DOM ref to the typing area for programmatic focus |
+| State                | Type                               | Description                                                                  |
+|----------------------|------------------------------------|------------------------------------------------------------------------------|
+| `nodeId`             | string                             | Current story node key (e.g. `'tx01'`)                                       |
+| `typed`              | string                             | Everything the player has typed for the current transmission                 |
+| `phase`              | `'intro' \| 'playing' \| 'result'` | High-level screen state                                                      |
+| `stats`              | `{ wpm, accuracy }`                | Live typing metrics, updated on every keystroke                              |
+| `nodeHistory`        | array                              | One record per completed transmission: `{ nodeId, accuracy, wpm, seconds, streak, chars }`                                                                                                                           |
+| `transmissionNumber` | number                             | 1–6, used to drive audio intensity and the tracker UI                        |
+| `startTime`          | ref                                | Timestamp of the first keystroke; `null` between transmissions               |
+| `inputRef`           | ref                                | DOM ref to the typing area for programmatic focus                            |
 
 Derived values are recomputed on every render from state: `node` (the current story node object), `target` (the text to transcribe), and `charStates` (the per-character state array from `accuracyEngine`).
 
@@ -191,7 +191,7 @@ Terminal nodes carry an `ending` field (`'good'`, `'neutral'`, or `'bad'`) which
 
 `src/logic/accuracyEngine.js` contains all pure measurement functions:
 
-| Function | Description |
+| Function            | Description |
 |---|---|
 | `normalizeChar(c)` | Maps typographic characters to plain equivalents (em dash → `-`, curly quotes → `'` / `"`) so special characters never block the player |
 | `charsMatch(typedChar, targetChar)` | Normalise-then-compare for a single character pair |
