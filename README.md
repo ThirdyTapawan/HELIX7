@@ -1,8 +1,37 @@
+<div align="center">
+
+![HELIX-7 boot sequence preview](./screenshots/1-intro%20New.png)
+
 # HELIX-7 // COMM TERMINAL
+
+**A narrative typing game transmitted from deep space.**
+
+Every keystroke rewrites the story. Every mistake costs the crew.
+
+[![React](https://img.shields.io/badge/React-18-4ade80?style=flat-square&logo=react&logoColor=0a0f0a)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5-4ade80?style=flat-square&logo=vite&logoColor=0a0f0a)](https://vitejs.dev/)
+[![Zero Runtime Deps](https://img.shields.io/badge/runtime%20deps-react%20only-4ade80?style=flat-square)](#tech-stack)
+
+[Play It](#getting-started) · [Report Bug](#) · [Request Feature](#)
+
+</div>
+
+---
 
 > *"Establishing uplink to Earth Relay Station 4... Distress beacon acknowledged. Incoming coordinates will arrive in 6 fragments. Transcribe each one exactly. Errors corrupt the sequence. The Calloway is waiting. So is your crew."*
 
-A narrative typing game set in deep space. You are a comm operator receiving fragmented distress transmissions from a stranded vessel. Transcribe each one accurately to determine the outcome of the mission — and the fate of your crew.
+You are a comm operator receiving fragmented distress transmissions from a stranded vessel. Transcribe each one accurately to determine the outcome of the mission — and the fate of your crew. Type well, and the crew comes home. Type carelessly, and the signal — and the story — falls apart.
+
+---
+
+## ✨ Why it's interesting
+
+- **🎮 Typing accuracy *is* the game** — there's no separate "choice" UI. How cleanly you transcribe each transmission silently steers the branching narrative toward one of three endings.
+- **🔊 Fully synthesised audio, zero asset files** — the ambient drone pad, sonar pings, and every keystroke SFX are generated live with the Web Audio API. No `.mp3`, no `.wav`, nothing to load.
+- **🌌 Hand-rolled WebGL shaders** — the nebula and meteor backgrounds are raw GLSL fragment shaders (no Three.js), including a `tanh()` polyfill for WebGL 1.
+- **📡 No `<input>` element** — the entire typing surface is a `keydown`-driven `<div>`, built to avoid the quirks (autocomplete, IME, mobile keyboard behavior) that come with native text inputs.
+- **📊 Real post-run analytics** — consistency (CV of WPM), accuracy trend across the run, best transmission, longest clean streak, and a composite operator grade (S→E) — all derived client-side from the run history.
+- **📦 One dependency: React** — everything else (audio, graphics, story engine) is written from scratch.
 
 ---
 
@@ -24,6 +53,7 @@ A narrative typing game set in deep space. You are a comm operator receiving fra
 - [Getting Started](#getting-started)
 - [Build & Preview](#build--preview)
 - [Step-by-Step Creation](#step-by-step-creation)
+- [About](#about)
 
 ---
 
@@ -294,6 +324,15 @@ Key animation effects:
 
 ---
 
+## 📸 Preview
+
+<div align="center">
+  <img src="./screenshots/2-playing new.png" alt="Transcribing a transmission mid-run" width="49%" />
+  <img src="./screenshots/4-result-good.png" alt="Mission debrief and operator grade" width="49%" />
+</div>
+
+---
+
 ## Accessibility
 
 - All WebGL backgrounds are skipped for users with `prefers-reduced-motion: reduce`. The CSS `reduced-motion` block also disables all CSS animations and transitions on the result screen, the intro, and the typing cursor.
@@ -423,3 +462,23 @@ After the visual implementation was complete, a final pass added:
 - The `prefers-reduced-motion` CSS block covering every animated element.
 - Reduced-motion code path in `App.jsx` that skips the typewriter effect, skips the glitch timer, and skips `ShaderField` entirely.
 - `useCountUp` in `ResultScreen` that snaps to the final value immediately for reduced-motion users.
+
+---
+
+## 🤝 Contributing
+
+This is currently a solo project, but feedback, issues, and suggestions are always welcome. Feel free to open an issue if you spot a bug or have an idea.
+
+---
+
+## 👤 About
+
+Built by **Angelito D. Tapawan III (Thirdy)** — Computer Engineering student and full-stack/AI developer with a background spanning automation, data engineering, and design-driven front-end work.
+
+- Portfolio: [thirdy-tapawan-portfolio-cy9u.vercel.app](https://thirdy-tapawan-portfolio-cy9u.vercel.app/)
+- LinkedIn: [angelito-tapawan-iii](https://www.linkedin.com/in/angelito-tapawan-iii/)
+- GitHub: [@ThirdyTapawan](https://github.com/ThirdyTapawan)
+
+<div align="center">
+  <sub>Transmission received. Signal held. Crew status: your call.</sub>
+</div>
